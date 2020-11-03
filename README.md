@@ -1,5 +1,6 @@
 # Emotion Detector
 This program takes a jpg image as an input and determines the emotion of the person inside the image. It is currently able to detect only anger, happy and neutral emotions. This model is trained using only anger, happy and neutral data of FER-2013 dataset from Kaggle. Further improvements will be done to improve the models capability. 
+
 Link to dataset:https://www.kaggle.com/msambare/fer2013
 
 # Motivation
@@ -22,6 +23,6 @@ To improve interaction between human and machine.
 4. Ability to detect emotions using webcam video as input.
 
 # Contact Information
-1. Tang Jie     Email: tjjust4work@gmail.com
-2. Muhammad Khairul Asyraf bin Suaimi
-3. Muhamad Noorazizi Bin Abd Ghani
+1. Tang Jie                             Email: tjjust4work@gmail.com
+2. Muhammad Khairul Asyraf bin Suaimi   Email: mkhairulasyraf12@gmail.com
+3. Muhamad Noorazizi Bin Abd Ghani      Email: azizi.ghani@gmail.com
