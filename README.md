@@ -8,11 +8,13 @@ To improve interaction between human and machine.
 
 # Steps
 1. Download the whole folder.
-2. Import pom.xml as project in IntelliJ.
-3. Once the dependencies are resolved, open the test1.java file.
-4. Change image path to own image path under testImage() function.
-5. Run the program.
-6. The output stating the emotion of the person will be shown in the console.
+2. Download the FER-2013 dataset.
+3. Import pom.xml as project in IntelliJ.
+4. Once the dependencies are resolved, open the test1.java file.
+5. Copy and paste angry, neutral and happy files for test and train into the resource file and rename the file path for training purposes. (rename the modelFilename to create a new model as the default model has been created.)
+6. Change image path to own image path under testImage() function.
+7. Run the program.
+8. The output stating the emotion of the person will be shown in the console.
 
 # Future Development
 1. Ability to detect more emotions.
