@@ -1,7 +1,5 @@
 # Emotion Detector
-This program takes a jpg image as an input and determines the emotion of the person inside the image. It is currently able to detect only anger, happy and neutral emotions. This model is trained using only anger, happy and neutral data of FER-2013 dataset from Kaggle. Further improvements will be done to improve the models capability. 
-
-Link to dataset:https://www.kaggle.com/msambare/fer2013
+This program takes a jpg image as an input and determines the emotion of the person inside the image. It is currently able to detect only anger, happy and neutral emotions. This model is trained using only anger, happy and neutral data of [FER-2013 dataset](https://www.kaggle.com/msambare/fer2013) from Kaggle. Further improvements will be done to improve the models capability. 
 
 # Motivation
 To improve interaction between human and machine.
