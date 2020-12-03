@@ -5,6 +5,7 @@ This program takes a jpg image as an input and determines the emotion of the per
 To improve interaction between human and machine.
 
 # Network Architecture
+input -> conv(relu) -> maxpool -> batchNorm -> conv(relu) -> conv(relu) -> maxpool -> fc(tanh) -> fc(tanh) -> softmax(mxcent) -> output
 
 # Steps
 1. Download the whole folder.
@@ -21,7 +22,6 @@ To improve interaction between human and machine.
 2. Ability to perform localization using bounding boxes.
 3. Apply transfer learning.
 4. Ability to detect emotions using webcam video as input.
-5. Solve the problem of overfitting.
 
 # Contact Information
 1. Tang Jie                             Email: tjjust4work@gmail.com
