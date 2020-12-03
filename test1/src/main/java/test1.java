@@ -66,7 +66,7 @@ public class test1 {
     private static List<String> labels;
     private static final String[] allowedExtensions = BaseImageLoader.ALLOWED_FORMATS;
     private static DataNormalization scaler = new ImagePreProcessingScaler(0, 1);
-    private static File modelFilename = new File(System.getProperty("user.dir"), "generated-model/testmodel.zip");
+    private static File modelFilename = new File(System.getProperty("user.dir"), "generated-model/test2model_batchNorm_IDTtoRELU.zip");
     private static MultiLayerNetwork model;
 
 
