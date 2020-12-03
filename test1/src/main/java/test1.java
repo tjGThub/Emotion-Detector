@@ -18,10 +18,7 @@ import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.inputs.InputType;
-import org.deeplearning4j.nn.conf.layers.ConvolutionLayer;
-import org.deeplearning4j.nn.conf.layers.DenseLayer;
-import org.deeplearning4j.nn.conf.layers.OutputLayer;
-import org.deeplearning4j.nn.conf.layers.SubsamplingLayer;
+import org.deeplearning4j.nn.conf.layers.*;
 import org.deeplearning4j.nn.layers.objdetect.DetectedObject;
 import org.deeplearning4j.nn.layers.objdetect.YoloUtils;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
@@ -69,7 +66,7 @@ public class test1 {
     private static List<String> labels;
     private static final String[] allowedExtensions = BaseImageLoader.ALLOWED_FORMATS;
     private static DataNormalization scaler = new ImagePreProcessingScaler(0, 1);
-    private static File modelFilename = new File(System.getProperty("user.dir"), "generated-model/test2model.zip");
+    private static File modelFilename = new File(System.getProperty("user.dir"), "generated-model/test2model_batchNorm_IDTtoRELU.zip");
     private static MultiLayerNetwork model;
 
 
@@ -143,36 +140,38 @@ public class test1 {
                     .layer(0, new ConvolutionLayer.Builder(5, 5)
                             .nIn(nChannel)
                             .stride(1, 1)
-                            .activation(Activation.IDENTITY)
+                            .activation(Activation.RELU)            // Identity
                             .nOut(250)
                             .build())
                     .layer(1, new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
                             .kernelSize(3, 3)
                             .stride(2, 2)
                             .build())
-                    .layer(2, new ConvolutionLayer.Builder(5, 5)
+                    .layer(2,new BatchNormalization())
+                    .layer(3, new ConvolutionLayer.Builder(5, 5)
                             .stride(1, 1)
-                            .activation(Activation.IDENTITY)
+                            .activation(Activation.RELU)            // Identity
                             .nOut(200)
                             .build())
-                    .layer(3, new ConvolutionLayer.Builder(5, 5)
+                 //   .layer(3, new BatchNormalization())         // Additional ----------------------------------------------
+                    .layer(4, new ConvolutionLayer.Builder(5, 5)
                             .stride(1, 1)
                             .activation(Activation.RELU)
                             .nOut(150)
                             .build())
-                    .layer(4, new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
+                    .layer(5, new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
                             .kernelSize(3, 3)
                             .stride(2, 2)
                             .build())
-                    .layer(5, new DenseLayer.Builder()
+                    .layer(6, new DenseLayer.Builder()
                             .activation(Activation.TANH)
                             .nOut(100)
                             .build())
-                    .layer(6, new DenseLayer.Builder()
+                    .layer(7, new DenseLayer.Builder()
                             .activation(Activation.TANH)
                             .nOut(50)
                             .build())
-                    .layer(7, new OutputLayer.Builder(LossFunctions.LossFunction.MCXENT)
+                    .layer(8, new OutputLayer.Builder(LossFunctions.LossFunction.MCXENT)
                             .activation(Activation.SOFTMAX)
                             .nOut(nClasses)
                             .build())
